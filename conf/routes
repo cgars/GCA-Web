@@ -87,3 +87,8 @@ GET           /password                                       @controllers.Accou
 POST          /password                                       @controllers.Accounts.passwordResetCommit
 GET           /forgotpassword                                 @controllers.Accounts.forgotPasswordPage
 POST          /forgotpassword                                 @controllers.Accounts.forgotPasswordCommit
+
+# Mobile ---------------------------------------------------------------------------------------------------------------
+
+GET            /mob/conferences                               @controllers.Mobile.Conferences
+GET            /mob/conference/:id                            @controllers.Mobile.Conference(id: String)
