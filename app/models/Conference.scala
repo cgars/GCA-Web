@@ -19,6 +19,13 @@ import org.apache.commons.codec.digest.DigestUtils
 import org.joda.time.format.DateTimeFormat
 import models.util.DateTimeConverter
 
+/*
+ * Import the functionality needed for parsing commonmark data.
+ */
+import org.commonmark.node._
+import org.commonmark.parser.Parser
+import org.commonmark.renderer.html.HtmlRenderer
+
 
 /**
  * A model for that represents a conference.
@@ -116,6 +123,21 @@ class Conference extends Model with Owned with Tagged {
   def touch (): Unit = {
     this.mtime = new DateTime(DateTimeZone.UTC)
   }
+
+  /**
+    * Transform the Markdown formatted conference information to its HTML representation.
+    *
+    * @return the HTML representation of the conference information
+    */
+  def getInfoAsHTML () : String = {
+    /*
+     * Create a HTML renderer and a Markdown parser using factory methods.
+     * Parse the Markdown formatted conference information and render it to HTML.
+     */
+    // TODO: write test case
+    return HtmlRenderer.builder().build().render(Parser.builder().build().parse(this.info))
+  }
+
 }
 
 object Conference extends Model {
