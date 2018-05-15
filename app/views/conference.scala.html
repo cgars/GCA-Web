@@ -27,7 +27,7 @@
         }
         @if(conference.description != null) {
             <div class="jumbo-small">
-                @conference.description
+                @Html(conference.formatDescription)
             </div>
         }
         <p>@conference.formatDuration</p>
@@ -37,9 +37,6 @@
             <li>
                <p>Submission is <span class="text-success"><b>open</b></span>!</p>
             </li>
-             @if(conference.deadline != null) {
-                 <li><p><b>Deadline:</b> @conference.deadline.toString(conference.dateFormatter)</p></li>
-             }
             </ul>
 
             @if(account.isDefined) {
@@ -65,7 +62,7 @@
             @if(conference.isPublished) {
                 <p>Abstract submission is <span class="text-danger"><b>closed</b></span>.</p>
             } else {
-                <p>The submission for the @conference.name is currently closed.<br>
+                <p>Submission is <span class="text-danger"><b>closed</b></span>.<br>
                     Please check the <a href="@conference.link">conference homepage</a> for details.
                 </p>
             }
