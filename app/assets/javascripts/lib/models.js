@@ -1724,6 +1724,9 @@ define(["lib/tools", "lib/accessors",  "moment", "knockout"], function(tools, ac
         AbstractGroup: AbstractGroup,
         ObservableAbstractGroup:ObservableAbstractGroup,
         Schedule: Schedule,
+        Event: Event,
+        Track: Track,
+        Session: Session,
         SchedulerEvent: SchedulerEvent
     };
 
