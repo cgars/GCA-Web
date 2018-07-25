@@ -1311,8 +1311,8 @@ define(["lib/tools", "lib/accessors",  "moment", "knockout"], function(tools, ac
          */
         self.splitByDays = function () {
           var subtracks = [];
-          var start = this.getStart();
-          var end = this.getEnd();
+          var start = self.getStart();
+          var end = self.getEnd();
           var splitDate = start;
           while (Schedule.isIntermediateDate(start, end, splitDate)) {
               var splitEvents = [];
@@ -1378,8 +1378,8 @@ define(["lib/tools", "lib/accessors",  "moment", "knockout"], function(tools, ac
          */
         self.splitByDays = function () {
             var subsessions = [];
-            var start = this.getStart();
-            var end = this.getEnd();
+            var start = self.getStart();
+            var end = self.getEnd();
             var splitDate = start;
             // split all tracks of this session by days
             var preSplitTracks = [];
@@ -1590,7 +1590,7 @@ define(["lib/tools", "lib/accessors",  "moment", "knockout"], function(tools, ac
         // Check if the specified date is part of the schedule.
         self.isScheduledDate = function (date) {
             // only compare date not exact time
-            return Schedule.isIntermediateDate(this.getStart(), this.getEnd(), date);
+            return Schedule.isIntermediateDate(self.getStart(), self.getEnd(), date);
         };
 
         // Get all the events present in the schedule.
